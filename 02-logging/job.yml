@@ -1,0 +1,16 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: >-
+  Rscript penguins.R
+  --data ${{inputs.penguins_datadir}}
+code: src
+inputs:
+  penguins_datadir:
+    path: data
+    mode: ro_mount
+environment:
+  build:
+    path: environment
+compute: azureml:cpu-cluster
+display_name: cli-job-r-penguins-logging
+experiment_name: cli-job-r-penguins-logging
+description: Train a random forest model to predict gender on the Palmer Penguins dataset with logging using MLflow
