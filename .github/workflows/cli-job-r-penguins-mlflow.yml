@@ -1,7 +1,5 @@
 name: cli-job-r-penguins-mlflow
 on:
-  schedule:
-    - cron: "0 0 * * *"
   push:
     branches:
       - azureml-cli-v2
